@@ -2,9 +2,11 @@ import random
 import sys
 import math
 
+
 def infinity():
     z = math.inf
     return z
+
 
 def start():
     level = input("Do you want to play easy, medium, or hard? E, M, H?  ")
@@ -18,12 +20,14 @@ def start():
         random_word == pick_word(10, infinity())
         return game(random_word)
 
+
 def pick_word(min_letter, max_letter):
     with open("/usr/share/dict/words") as my_file:
         contents = my_file.read().splitlines()
-    the_cool = [word.lower() for word in contents if min_letter <= word <= max_letter]
+    the_cool = [word.lower() for word in contents if min_letter <= len(word) <= max_letter]
     random_word = random.choice(the_cool)
     return random_word
+
 
 def game(random_word):
 
